@@ -19,4 +19,14 @@ Rvis_CSS <- function(selector, declarations){
     if (i == length(declarations)) rm(value)
   }
   
+  # Generate a formatted list of CSS declarations
+  for (i in 1:number_of_declarations){
+    if (i == 1) formatted_declarations <- vector(mode = "character", length = 0)
+    line <- paste("\t", properties[i], ": ", values[i], ";\n", sep = '')
+    formatted_declarations <- c(formatted_declarations, line)
+    if (i == number_of_declarations) {
+      formatted_declarations <- paste(formatted_declarations, collapse = '')
+    }
+  }
+  
 }
