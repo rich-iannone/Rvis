@@ -29,4 +29,9 @@ Rvis_CSS <- function(selector, declarations){
     }
   }
   
+  # Generate the CSS block
+  CSS_block <- paste(selector, " {\n", formatted_declarations, "}\n", sep = '')
+  
+  return(CSS_block)
+  
 }
