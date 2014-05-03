@@ -10,4 +10,13 @@ Rvis_CSS <- function(selector, declarations){
     properties <- c(properties, property)
     if (i == length(declarations) - 1) rm(property)
   }
+  
+  # Get a vector list of CSS property values
+  for (i in seq(from = 2, to = length(declarations), by = 2)){
+    if (i == 2) values <- vector(mode = "character", length = 0)
+    value <- declarations[i]
+    values <- c(values, value)
+    if (i == length(declarations)) rm(value)
+  }
+  
 }
