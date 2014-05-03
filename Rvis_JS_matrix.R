@@ -27,5 +27,10 @@ Rvis_JS_matrix <- function(rows, columns, values){
     stop("The number of values provided do not match the expected number.")
   }
   
+  # Generate and return a formatted matrix declaration string
+  formatted_matrix <-
+    paste("var matrix = [\n", matrix_block, "\t];\n", sep = '')
+  
+  return(formatted_matrix)
   
 }
