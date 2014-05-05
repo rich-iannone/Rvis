@@ -1,6 +1,5 @@
 Rvis_JS_var <- function(sets){
     
-
   # Get the number of variables to set
   number_of_vars <- length(sets) / 2
   
@@ -48,4 +47,23 @@ Rvis_JS_var <- function(sets){
     var_values <- c(var_values, var_value)
     if (i == length(sets)) rm(var_value)
   }
+  
+  # Generate and return a formatted variable declaration string
+  for (i in 1:number_of_vars){
+    if (i == 1){
+      formatted_var <- vector("numeric", length = 0)
+      formatted_var_row <- paste("var ", var_names[i], " = ", var_values[i], "\n", sep = '')
+    }
+    if (i > 1){
+      formatted_var_row <- paste("    ", var_names[i], " = ", var_values[i], "\n", sep = '')
+    }
+    formatted_var <- c(formatted_var, formatted_var_row)
+    if (i == number_of_vars){
+      formatted_var <- paste(formatted_var, collapse = '')
+      rm(formatted_var_row)
+    }
+  }
+  
+  return(formatted_var)
+  
 }
