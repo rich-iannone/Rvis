@@ -38,8 +38,6 @@ Rvis_JS_var <- function(sets){
         if (j == (number/2)){
           var_value <- c(gsub("$", ", ", var_value[1:((number/2) - 1)]), var_value[number/2]) 
           var_value <- paste(var_value, collapse = '')
-          var_value <- gsub("^", "{", var_value)
-          var_value <- gsub("$", "}", var_value)
           rm(var_value_part, j)
         }
       }
