@@ -15,7 +15,9 @@ Rvis_JS_var <- function(sets){
   for (i in seq(from = 2, to = length(sets), by = 2)){
     if (i == 2) var_values <- vector(mode = "character", length = 0)
     var_value <- sets[i]
-    if (grepl(",", var_value) == TRUE){
+    if (grepl(",", var_value) == TRUE &
+          grepl("\\{", var_value) == TRUE &
+          grepl("\\}", var_value) == TRUE){
       split <- unlist(strsplit(var_value, ","))
       split <- gsub(" ", "", split)
       number <- length(split)
